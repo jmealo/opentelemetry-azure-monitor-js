@@ -97,7 +97,7 @@ export class Context {
     this.tags[this.keys.deviceId] = '';
     this.tags[this.keys.cloudRoleInstance] = os && os.hostname();
     this.tags[this.keys.deviceOSVersion] = os && `${os.type()} ${os.release()}`;
-    this.tags[this.keys.cloudRole] = Context.DefaultRoleName;
+    this.tags[this.keys.cloudRole] = process.env.CLOUD_ROLE_NAME || Context.DefaultRoleName;
 
     // not yet supported tags
     this.tags['ai.device.osArchitecture'] = os && os.arch();
